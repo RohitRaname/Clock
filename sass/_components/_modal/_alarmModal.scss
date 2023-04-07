@@ -1,0 +1,49 @@
+.modal-content[data-type="alarm"] {
+
+
+  
+
+  .modal-boxs {
+    justify-content: center;
+  }
+
+  .modal-input__box{
+    height: 4rem;
+  }
+
+  // <div class="modal-input__box mg-sm" data-action="set-alarm-tune">
+  .modal-input__box[data-action="set-alarm-tune"] .list i {
+    & {
+      padding: 0.5rem;
+      border-radius: $radius-sm;
+
+    }
+
+    &:hover {
+      background: var(--background-hover-light);
+    }
+  }
+
+  .alarm-days {
+    justify-content: center;
+    gap: 1.3rem;
+  }
+
+  .alarm-dayBtn {
+    transition: all 0.2s;
+    cursor: pointer;
+    color: var(--color-primary);
+    border: 1px solid currentColor;
+
+    &:hover {
+      filter: brightness(120%);
+    }
+
+    &:active,
+    &[data-active="true"] {
+      filter: brightness(100%);
+      color: var(--default-background);
+      background: var(--color-primary);
+    }
+  }
+}

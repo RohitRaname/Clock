@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script defer type="module" src="./script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- common component along with css  -->
+      <nav class="nav">
+        <div class="nav-header">
+          <div class="nav-menu nav-menu__desktop">
+            <i class="fas icon fa-clock"></i>
+            <h8 class="h-8 light">Clock</h8>
+          </div>
+
+          <div class="nav-menu nav-menu__phone hidden">
+            <i class="fas icon fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-content">
+          <ul class="list nav-list">
+            <li
+              class="list-item nav-item"
+              data-section="timer"
+              data-active="true"
+            >
+              timer
+              <i class="fas icon fa-hourglass-half"></i>
+            </li>
+            <li class="list-item nav-item" data-section="alarm">
+              alarm
+              <i class="fas icon fa-bell"></i>
+            </li>
+            <li class="list-item nav-item" data-section="stopwatch">
+              stopwatch
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+            <li class="list-item nav-item" data-section="worldclock">
+              worldclock
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+
+            <li class="list-item nav-item" data-section="settings">
+              settings
+              <i class="fas icon fa-cog"></i>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <section class="section section-timer">
+          <div class="timer__overlay overlay hidden">&nbsp;</div>
+
+          <!-- not common -->
+          <div class="timer">
+            <div class="timer__container">
+              <div class="timer__list card-list" data-enable-remove="false">
+                <!-- common along with css  -->
+
+                <div
+                  class="card timerCard"
+                  data-name="timer (3)"
+                  data-index="1"
+                  data-remaining-time-str="00:03:00"
+                  data-time-passed="0"
+                  data-duration="180"
+                  data-type="timer"
+                  data-action="edit"
+                  data-start="false"
+                  data-pause="false"
+                  data-expand="false"
+                  data-mini="false"
+                >
+                  <header class="timerCard__header card-header mg-lw">
+                    <h8 class="h-8 timerCard__name card-name"
+                      >Timer
+                      <span class="timerCard__number">(3)</span>
+                    </h8>
+                    <div class="timerCard__header-btns">
+                      <button
+                        class="timerCard__header-btn card-header__btn btn-icon--square"
+                        data-action="expand"
+                      >
+                        <i class="fa fa-expand"></i>
+                      </button>
+
+                      <button
+                        class="timerCard__header-btn card-header__btn btn-icon--square"
+                        data-action="mini"
+                      >
+                        <i class="icon fa fa-compress"></i>
+                        <!-- <i class="fas fa-external-link-alt"></i> -->
+                      </button>
+                      <button
+                        class="timerCard__header-btn card-header__btn btn-icon--square hidden"
+                        data-action="delete"
+                      >
+                        <!-- <i class="icon fa fa-compress"></i> -->
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+
+                      <button
+                        class="timerCard__header-btn card-header__btn btn-icon--square hidden"
+                        data-action="normal"
+                      >
+                        <i class="fas fa-arrows-alt"></i>
+                      </button>
+                    </div>
+                  </header>
+                  <div class="timerCard__time-box mg-sm">
+                    <div class="timerCard__time-figure"></div>
+
+                    <div class="flex-wrapper timerCard__time-percent">
+                      <div class="single-chart">
+                        <svg viewBox="0 0 36 36" class="circular-chart orange">
+                          <path
+                            class="circle-bg"
+                            d="M18 2.0845
+                              a 15.9155 15.9155 0 0 1 0 31.831
+                              a 15.9155 15.9155 0 0 1 0 -31.831"
+                          />
+                          <path
+                            class="circle timerFinishPercent"
+                            stroke-dasharray="0, 100"
+                            d="M18 2.0845
+                              a 15.9155 15.9155 0 0 1 0 31.831
+                              a 15.9155 15.9155 0 0 1 0 -31.831"
+                          />
+                          <!-- <text x="18" y="20.35" class="percentage">30%</text> -->
+                        </svg>
+                      </div>
+                    </div>
+                    <p
+                      class="timerCard__time-value timerCard__timer-leftTime card-time"
+                    >
+                      00:03:00
+                    </p>
+                    <button
+                      class="timerCard__end-value timerCard__timer-End Time btn--grey btn--sm hidden"
+                    >
+                      <i class="fas fa-bell"></i>
+                      <span class="timerCard__timer-EndTime-value">23.22</span>
+                    </button>
+                  </div>
+                  <div class="timerCard__footer">
+                    <button class="btn-icon--primary" data-action="start">
+                      <i class="fas icon fa-play" data-action="start"></i>
+                    </button>
+
+                    <button
+                      class="btn-icon--primary hidden"
+                      data-action="pause"
+                    >
+                      <i class="fas icon fa-pause" data-action="pause"></i>
+                    </button>
+
+                    <button class="btn-icon" data-action="reset" disabled>
+                      <i class="fas icon fa-circle-notch"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- common -->
+      <div class="crud-btns" data-page="timer">
+        <button class="btn-icon--square" data-action="edit">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="btn-icon--square hidden" data-action="done">
+          <i class="fas fa-check"></i>
+        </button>
+
+        <button class="btn-icon--square" data-action="add">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+
+      <!-- commo -->
+      <!-- <div class="modal hidden" data-action="add-timer">
+        <div class="overlay">&nbsp;</div>
+        <div class="modal-container card--dark fixed-center">
+          <div class="modal-content">
+            <h5 class="h-5 mg-bg">Add new timer</h5>
+
+            <div class="modal-boxs mg-bg" data-disabled="false">
+              <div class="modal-box" data-active="true">
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  
+                >
+                  <i class="fas fa-angle-up"></i>
+                </button>
+                <p type="text" class="modal-time__value">00</p>
+                <button
+                  class="modal-box__btn btn-icon--square"
+                 
+                >
+                  <i class="fas fa-angle-down"></i>
+                </button>
+              </div>
+              <i class="fas fa-ellipsis-v icon--dim icon--bg"></i>
+              <div class="modal-box">
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  
+                >
+                  <i class="fas fa-angle-up"></i>
+                </button>
+                <p type="text" class="modal-time__value">00</p>
+                <button
+                  class="modal-box__btn btn-icon--square"
+                 
+                >
+                  <i class="fas fa-angle-down"></i>
+                </button>
+              </div>
+              <i class="fas fa-ellipsis-v icon--dim icon--bg"></i>
+              <div class="modal-box">
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  
+                >
+                  <i class="fas fa-angle-up"></i>
+                </button>
+                <p type="text" class="modal-time__value">00</p>
+                <button
+                  class="modal-box__btn btn-icon--square"
+                 
+                >
+                  <i class="fas fa-angle-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="modal-name mg-bg" data-active="false">
+              <i class="fas fa-edit icon--md"></i>
+              <input type="text" class="modal-name__input" value="Timer(1)" />
+            </div>
+
+            <div class="modal-crud__btns">
+              <button class="modal-crud__btn btn--primary" data-action="save">
+                <i class="fas fa-save"></i>
+                <span>Save</span>
+              </button>
+              <button class="modal-crud__btn btn--outline" data-action="cancel">
+                <i class="fas fa-times"></i>
+                <span>Cancel</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="modal hidden">
+        <div class="overlay-transparent">&nbsp;</div>
+        <div class="modal-container card--dark fixed-center">
+          <div
+            class="modal-content"
+            data-action="edit"
+            data-index="1"
+            data-name="Timer(3)"
+            data-type="timer"
+            data-remaining-time-str="06:10:01"
+          >
+            <button
+              class="timerCard__header-btn card-header__btn btn-icon--square"
+              data-action="delete"
+            >
+              <!-- <i class="icon fa fa-compress"></i> -->
+              <i class="fas fa-trash-alt"></i>
+            </button>
+            <h5 class="h-5 mg-bg">Edit timer</h5>
+
+            <div class="modal-boxs mg-bg" data-disabled="false">
+              <div class="modal-box" data-active="true" data-time-unit="hour">
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  data-action="increase"
+                >
+                  <i class="fas fa-angle-up"></i>
+                </button>
+                <p
+                  type="text"
+                  class="modal-time__value"
+                  data-value="06"
+                  data-unit="hour"
+                >
+                  06
+                </p>
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  data-action="decrease"
+                >
+                  <i class="fas fa-angle-down"></i>
+                </button>
+              </div>
+              <i class="fas fa-ellipsis-v icon--dim icon--bg"></i>
+              <div
+                class="modal-box"
+                data-active="false"
+                data-time-unit="minute"
+              >
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  data-action="increase"
+                >
+                  <i class="fas fa-angle-up"></i>
+                </button>
+                <p
+                  type="text"
+                  data-value="10"
+                  data-unit="minute"
+                  class="modal-time__value"
+                >
+                  10
+                </p>
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  data-action="decrease"
+                >
+                  <i class="fas fa-angle-down"></i>
+                </button>
+              </div>
+              <i class="fas fa-ellipsis-v icon--dim icon--bg"></i>
+              <div
+                class="modal-box"
+                data-active="false"
+                data-time-unit="second"
+              >
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  data-action="increase"
+                >
+                  <i class="fas fa-angle-up"></i>
+                </button>
+                <p
+                  type="text"
+                  data-value="1"
+                  data-unit="second"
+                  class="modal-time__value"
+                >
+                  01
+                </p>
+                <button
+                  class="modal-box__btn btn-icon--square"
+                  data-action="decrease"
+                >
+                  <i class="fas fa-angle-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="modal-name mg-bg" data-active="false">
+              <i class="fas fa-edit icon--md"></i>
+              <input type="text" class="modal-name__input" value="Timer(1)" />
+            </div>
+
+            <div class="modal-crud__btns">
+              <button class="modal-crud__btn btn--primary" data-action="save">
+                <i class="fas fa-save"></i>
+                <span>Save</span>
+              </button>
+              <button class="modal-crud__btn btn--outline" data-action="cancel">
+                <i class="fas fa-times"></i>
+                <span>Cancel</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+data-timer-name="timer (3)"
+data-card-index="1"
+data-card-time="06:00:11"
+data-card-type="timer"
+data-card-action="edit"
+data-timer-duration="120"
+data-start-timer="false"
+data-pause-timer="false"
+data-expand-timer="false"
+data-mini-timer="false" -->

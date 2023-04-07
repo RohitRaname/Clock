@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      data-field="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/immer"></script>
+    <script defer type="module" src="./script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <audio class="hidden" src=""></audio>
+      <!-- common component along with css  -->
+      <nav class="nav">
+        <div class="nav-header">
+          <div class="nav-menu nav-menu__desktop">
+            <i class="fas icon fa-clock"></i>
+            <h8 class="h-8 light">Clock</h8>
+          </div>
+
+          <div class="nav-menu nav-menu__phone hidden">
+            <i class="fas icon fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-content">
+          <ul class="list nav-list">
+            <li
+              class="list-item nav-item"
+              data-section="timer"
+              data-active="true"
+            >
+              timer
+              <i class="fas icon fa-hourglass-half"></i>
+            </li>
+            <li class="list-item nav-item" data-section="alarm">
+              alarm
+              <i class="fas icon fa-bell"></i>
+            </li>
+            <li class="list-item nav-item" data-section="stopwatch">
+              stopwatch
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+            <li class="list-item nav-item" data-section="worldclock">
+              worldclock
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+
+            <li class="list-item nav-item" data-section="settings">
+              settings
+              <i class="fas icon fa-cog"></i>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- there are not section  -->
+      <main class="main">
+        <section class="section-worldclock">
+          <div class="worldclock">
+            <h3 class="h-3 mg-md center">World Clock</h3>
+            <div class="worldclock-list card-list" data-enable-remove="false">
+              <!-- <div
+                class="card worldclock-item"
+                data-index="1"
+                data-day-type="day"
+              >
+                <div class="worldclock-icon-box">
+                  <button
+                    class="card-header__btn card-deleteBtn btn-icon--square hidden"
+                    data-action="delete-card"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  <i
+                    class="fa fa-sun icon worldclock-day-icon"
+                    data-icon="day"
+                  ></i>
+                  <i
+                    class="fa fa-moon icon worldclock-day-icon"
+                    data-icon="night"
+                  ></i>
+                </div>
+                <h5 class="h-5 mg-0 worldclock-item-time">6:31</h5>
+                <p class="p--md worldclock-item-location">Seoul</p>
+                <p class="p--md worldclock-item-time-info">
+                  <span class="t--md worldclock-item-date">14-9-22</span>
+                  <span class="t--md worldclock-item-time-comparsion"
+                    >+10hrs 30mins</span
+                  >
+                </p>
+              </div>
+              <div
+                class="card worldclock-item"
+                data-index="1"
+                data-day-type="day"
+              >
+                <div class="worldclock-icon-box">
+                  <button
+                    class="card-header__btn card-deleteBtn btn-icon--square hidden"
+                    data-action="delete-card"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  <i
+                    class="fa fa-sun icon worldclock-day-icon"
+                    data-icon="day"
+                  ></i>
+                  <i
+                    class="fa fa-moon icon worldclock-day-icon"
+                    data-icon="night"
+                  ></i>
+                </div>
+                <h5 class="h-5 mg-0 worldclock-item-time">6:31</h5>
+                <p class="p--md worldclock-item-location">Seoul</p>
+                <p class="p--md worldclock-item-time-info">
+                  <span class="t--md worldclock-item-date">14-9-22</span>
+                  <span class="t--md worldclock-item-time-comparsion"
+                    >+10hrs 30mins</span
+                  >
+                </p>
+              </div>
+              <div
+                class="card worldclock-item"
+                data-index="1"
+                data-day-type="day"
+              >
+                <div class="worldclock-icon-box">
+                  <button
+                    class="card-header__btn card-deleteBtn btn-icon--square hidden"
+                    data-action="delete-card"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  <i
+                    class="fa fa-sun icon worldclock-day-icon"
+                    data-icon="day"
+                  ></i>
+                  <i
+                    class="fa fa-moon icon worldclock-day-icon"
+                    data-icon="night"
+                  ></i>
+                </div>
+                <h5 class="h-5 mg-0 worldclock-item-time">6:31</h5>
+                <p class="p--md worldclock-item-location">Seoul</p>
+                <p class="p--md worldclock-item-time-info">
+                  <span class="t--md worldclock-item-date">14-9-22</span>
+                  <span class="t--md worldclock-item-time-comparsion"
+                    >+10hrs 30mins</span
+                  >
+                </p>
+              </div>
+              <div
+                class="card worldclock-item"
+                data-index="1"
+                data-day-type="day"
+              >
+                <div class="worldclock-icon-box">
+                  <button
+                    class="card-header__btn card-deleteBtn btn-icon--square hidden"
+                    data-action="delete-card"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  <i
+                    class="fa fa-sun icon worldclock-day-icon"
+                    data-icon="day"
+                  ></i>
+                  <i
+                    class="fa fa-moon icon worldclock-day-icon"
+                    data-icon="night"
+                  ></i>
+                </div>
+                <h5 class="h-5 mg-0 worldclock-item-time">6:31</h5>
+                <p class="p--md worldclock-item-location">Seoul</p>
+                <p class="p--md worldclock-item-time-info">
+                  <span class="t--md worldclock-item-date">14-9-22</span>
+                  <span class="t--md worldclock-item-time-comparsion"
+                    >+10hrs 30mins</span
+                  >
+                </p>
+              </div> -->
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="crud-btns" data-page="worldclock">
+        <button class="btn-icon--square" data-action="edit">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="btn-icon--square hidden" data-action="done">
+          <i class="fas fa-check"></i>
+        </button>
+
+        <button class="btn-icon--square" data-action="add">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="modal hidden">
+        <div class="overlay-transparent">&nbsp;</div>
+        <div class="modal-container card--dark fixed-center">
+          <div class="modal-content" data-type="worldclock">
+            <h5 class="h-5 mg-sm">Add new location</h5>
+
+            <div
+              class="mg-md modal-search-bar dropdown-parent"
+              data-active="false"
+              data-d-scale="top"
+            >
+              <i class="fas fa-search icon--sm"></i>
+              <input
+                type="text"
+                class="modal-name__input dropdown-parent-input"
+                name="location"
+                placeholder="Enter a location"
+              />
+
+              <div
+                class="dropdown dropdown-h-0"
+                data-dropdown="location"
+                data-click-event="false"
+              >
+                <div class="list">
+                  <div class="list-item" data-active="false" data-value="10">
+                    10 minutes
+                  </div>
+                  <div class="list-item" data-active="false" data-value="20">
+                    20 minutes
+                  </div>
+                  <div class="list-item" data-active="false" data-value="30">
+                    30 minutes
+                  </div>
+                  <div class="list-item" data-active="false" data-value="50">
+                    50 minutes
+                  </div>
+                  <div class="list-item" data-active="false" data-value="60">
+                    1 hour
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-crud__btns">
+              <button class="modal-crud__btn btn--primary" data-action="save">
+                <i class="fas fa-plus"></i>
+                <span>Add</span>
+              </button>
+              <button class="modal-crud__btn btn--outline" data-action="cancel">
+                <i class="fas fa-times"></i>
+                <span>Cancel</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

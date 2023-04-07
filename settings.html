@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      data-field="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/immer"></script>
+    <script defer type="module" src="./script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <audio class="hidden" src=""></audio>
+      <!-- common component along with css  -->
+      <nav class="nav">
+        <div class="nav-header">
+          <div class="nav-menu nav-menu__desktop">
+            <i class="fas icon fa-clock"></i>
+            <h8 class="h-8 light">Clock</h8>
+          </div>
+
+          <div class="nav-menu nav-menu__phone hidden">
+            <i class="fas icon fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-content">
+          <ul class="list nav-list">
+            <li
+              class="list-item nav-item"
+              data-section="timer"
+              data-active="true"
+            >
+              timer
+              <i class="fas icon fa-hourglass-half"></i>
+            </li>
+            <li class="list-item nav-item" data-section="alarm">
+              alarm
+              <i class="fas icon fa-bell"></i>
+            </li>
+            <li class="list-item nav-item" data-section="stopwatch">
+              stopwatch
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+            <li class="list-item nav-item" data-section="worldclock">
+              worldclock
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+
+            <li class="list-item nav-item" data-section="settings">
+              settings
+              <i class="fas icon fa-cog"></i>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- there are not section  -->
+      <main class="main">
+        <section class="section-settings">
+          <h2 class="h-2">Settings</h2>
+
+          <div class="settings">
+            <div class="settings-list">
+              <div
+                class="setting-item dropdown-parent card-only"
+                data-active="false"
+                data-d-scale="top"
+                data-setting-value="dark"
+              >
+                <div class="setting-item-content">
+                  <i class="setting-item-icon fas fa-palette"></i>
+
+                  <p class="setting-item-title">App theme</p>
+                  <p class="setting-item-text">Select which theme to display</p>
+
+                  <p
+                    class="setting-item-input dropdown-parent-input"
+                    data-setting="theme"
+                    data-value="dark"
+                  >
+                    Dark
+                  </p>
+
+                  <button
+                    class="btn-icon--square setting-item-btn"
+                    data-action="show-dropdown"
+                  >
+                    <i class="fas fa-angle-down"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="dropdown dropdown-h-0"
+                  data-dropdown="theme"
+                  data-click-event="false"
+                >
+                  <div class="list">
+                    <div
+                      class="list-item"
+                      data-active="false"
+                      data-value="light"
+                    >
+                      light
+                    </div>
+                    <div class="list-item" data-active="true" data-value="dark">
+                      dark
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

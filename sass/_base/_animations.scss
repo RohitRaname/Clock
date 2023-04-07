@@ -1,0 +1,21 @@
+// apply direct page load
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleY {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

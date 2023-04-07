@@ -1,0 +1,33 @@
+{
+  "name": "9.clock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "timer.html",
+  "scripts": {
+    "sass": "node-sass -w sass/main.scss css/style.css",
+    "start": "parcel watch ./script.js "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assignment": "^2.2.1",
+    "eslint-plugin-better-mutation": "^1.4.0",
+    "immer": "^9.0.15",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.1",
+    "prettier": "^2.7.1"
+  },
+  "engines": {
+    "node": ">10.0.0"
+  }
+}

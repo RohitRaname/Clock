@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"  data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      data-field="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/immer"></script>
+    <script defer type="module" src="./script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <audio class="hidden" src=""></audio>
+      <!-- common component along with css  -->
+      <nav class="nav">
+        <div class="nav-header">
+          <div class="nav-menu nav-menu__desktop">
+            <i class="fas icon fa-clock"></i>
+            <h8 class="h-8 light">Clock</h8>
+          </div>
+
+          <div class="nav-menu nav-menu__phone hidden">
+            <i class="fas icon fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-content">
+          <ul class="list nav-list">
+            <li
+              class="list-item nav-item"
+              data-section="timer"
+              data-active="true"
+            >
+              timer
+              <i class="fas icon fa-hourglass-half"></i>
+            </li>
+            <li class="list-item nav-item" data-section="alarm">
+              alarm
+              <i class="fas icon fa-bell"></i>
+            </li>
+            <li class="list-item nav-item" data-section="stopwatch">
+              stopwatch
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+            <li class="list-item nav-item" data-section="worldclock">
+              worldclock
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+
+            <li class="list-item nav-item" data-section="settings">
+              settings
+              <i class="fas icon fa-cog"></i>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- there are not section  -->
+      <main class="main">
+        <section class="section-stopwatch">
+          <div
+            class="stopwatch"
+            data-start-stopwatch="false"
+            data-expand-view="false"
+            data-mini-view="hidden"
+            data-time-covered-in-miliSec="0"
+            data-time-str=""
+          >
+            <div class="overlay hidden"></div>
+            <div class="stopwatch-container">
+              <header class="stopwatch-header mg-lw">
+                <button
+                  class="btn-icon--square"
+                  data-action="expand-stopwatch-view"
+                >
+                  <i class="fa fa-expand"></i>
+                </button>
+
+                <button
+                  class="btn-icon--square"
+                  data-action="mini-stopwatch-view"
+                >
+                  <i class="icon fa fa-compress"></i>
+                </button>
+
+                <button
+                  class="btn-icon--square hidden"
+                  data-action="normal-stopwatch-view"
+                >
+                  <i class="fas fa-arrows-alt"></i>
+                </button>
+              </header>
+
+              <article class="stopwatch-content mg-md">
+                <p class="stopwatch-time-box" data-type="hour">
+                  <span
+                    class="stopwatch-time-value"
+                    data-field="hour"
+                    value="00"
+                    >00</span
+                  >
+                  <label class="stopwatch-time-unit">hr</label>
+                </p>
+                <p class="stopwatch-gap-icon">
+                  <span>:</span>
+                </p>
+                <p class="stopwatch-time-box" data-type="min">
+                  <span
+                    class="stopwatch-time-value"
+                    data-field="min"
+                    data-value="00"
+                    >00</span
+                  >
+                  <label class="stopwatch-time-unit">min</label>
+                </p>
+                <p class="stopwatch-gap-icon">
+                  <span>:</span>
+                </p>
+                <p class="stopwatch-time-box" data-type="sec">
+                  <span class="stopwatch-time-value" data-field="sec" value="00"
+                    >00</span
+                  >
+                  <label class="stopwatch-time-unit">sec</label>
+                </p>
+                <p class="stopwatch-gap-icon">
+                  <span>.</span>
+                </p>
+                <p class="stopwatch-time-box" data-type="mili-sec">
+                  <span
+                    class="stopwatch-time-value"
+                    data-field="mili-sec"
+                    value="00"
+                    >00</span
+                  >
+                  <label class="stopwatch-time-unit"></label>
+                </p>
+              </article>
+
+              <footer class="stopwatch-footer mg-md">
+                <button class="btn-icon--primary" data-action="start-stopwatch">
+                  <i class="fas icon fa-play"></i>
+                </button>
+                <button
+                  class="btn-icon--primary hidden"
+                  data-action="pause-stopwatch"
+                >
+                  <i class="fas icon fa-pause"></i>
+                </button>
+
+                <button
+                  class="btn-icon disabled"
+                  data-action="bookmark-current-time"
+                >
+                  <i class="fa icon fa-thumb-tack"></i>
+                </button>
+
+                <button class="btn-icon disabled" data-action="reset-stopwatch">
+                  <i class="fas icon fa-circle-notch"></i>
+                </button>
+              </footer>
+
+              <div class="stopwatch-checkpoint">
+                <header class="stopwatch-checkpoint-header mg-lw">
+                  <p class="h-8">Laps</p>
+                  <p class="h-8">Time</p>
+                  <p class="h-8">Total</p>
+                </header>
+                <footer class="stopwatch-checkpoint-footer">
+                  <ul class="stopwatch-checkpoint-list">
+                    <!-- <li class="stopwatch-checkpoint-item" da>
+                      <p class="t--sm stopwatch-checkpoint-item-details">
+                        <span class="stopwatch-checkpoint-item-index"> 1 </span>
+
+                        <span class="stopwatch-checkpoint-item-rank">Fastest</span>
+                      </p>
+                      <p class="t--sm stopwatch-checkpoint-item-time">1</p>
+                      <p class="t--sm stopwatch-checkpoint-item-total">1</p>
+                    </li>
+                    <li class="stopwatch-checkpoint-item">
+                      <p class="t--sm stopwatch-checkpoint-item-details">
+                        <span class="stopwatch-checkpoint-item-index"> 1 </span>
+
+                        <span class="stopwatch-checkpoint-item-rank">Fastest</span>
+                      </p>
+                      <p class="t--sm stopwatch-checkpoint-item-time">1</p>
+                      <p class="t--sm stopwatch-checkpoint-item-total">1</p>
+                    </li>
+                    <li class="stopwatch-checkpoint-item">
+                      <p class="t--sm stopwatch-checkpoint-item-details">
+                        <span class="stopwatch-checkpoint-item-index"> 1 </span>
+
+                        <span class="stopwatch-checkpoint-item-rank">Fastest</span>
+                      </p>
+                      <p class="t--sm stopwatch-checkpoint-item-time">1</p>
+                      <p class="t--sm stopwatch-checkpoint-item-total">1</p>
+                    </li> -->
+                  </ul>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

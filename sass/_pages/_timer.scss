@@ -1,0 +1,233 @@
+.timerCard {
+  &__header {
+    @include flex-center-space;
+  }
+  &__time-box {
+    background: var(--background-hover-light);
+    border-radius: 50%;
+    height: 20rem;
+    width: 20rem;
+    @include flex-center;
+    position: relative;
+    margin: 0 auto;
+  }
+  &__footer {
+    @include flex-center;
+    gap: $gap-md;
+  }
+
+  // &__header{} *************************
+  &__header-btns {
+    @include flex-center;
+    gap: $gap-sm;
+  }
+
+  &__name {
+    transform: translateY(-0.8rem);
+  }
+
+  // &__time-box{} *************************
+  &__time-percent {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__time-figure {
+    background: var(--background-light);
+    border-radius: 50%;
+    height: 17rem;
+    width: 17rem;
+    top: 0;
+    left: 0;
+  }
+
+  &__time-value {
+    position: absolute;
+    top: 35%;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--text-dim);
+  }
+
+  &__end-value {
+    position: absolute;
+    top: 63%;
+  }
+
+  // &__footer********************************
+
+  // &__footer{}
+  button[data-action="start"] {
+    padding: 1.1rem 1.4rem;
+    height: 4rem;
+    width: 4rem;
+  }
+  button[data-action="reset"] {
+    padding: 1.25rem;
+    height: 4rem;
+    width: 4rem;
+  }
+
+  button[data-action="pause"] {
+    padding: 1rem 1.5rem;
+    font-size: 1.8rem;
+    height: 4rem;
+    width: 4rem;
+  }
+
+  // js state change //////////////////////////////////////////////////////////////////////////////////////////////////////
+  &[data-start="true"] {
+    // btn
+
+    .timerCard {
+      &__end-value {
+        display: block !important;
+      }
+
+      &__time-value {
+        color: var(--default-text);
+      }
+
+      &__time-percent {
+        opacity: 1;
+      }
+    }
+
+    button[data-action="pause"] {
+      display: flex !important;
+    }
+    button[data-action="start"] {
+      display: none !important;
+    }
+  }
+
+  &[data-pause="true"] {
+    button[data-action="start"] {
+      display: flex;
+    }
+
+    .timerCard__time-percent {
+      opacity: 1;
+    }
+  }
+
+  &[data-expand="true"] {
+    background: transparent;
+    position: relative;
+    z-index: 200;
+    box-shadow: none;
+
+    @include fixed-center;
+
+    .timerCard {
+      &__name {
+        display: none;
+      }
+
+      &__header-btns {
+        width: 100%;
+        button {
+          display: none;
+        }
+
+        button[data-action="normal"] {
+          display: block !important;
+          margin-left: auto;
+
+          i {
+            font-size: 2.4rem;
+          }
+        }
+      }
+
+      &__time-box {
+        height: 50rem;
+        width: 50rem;
+        margin-bottom: 5.8rem !important;
+      }
+
+      // &__time-box{} *************************
+      &__time-percent {
+        height: 100%;
+        width: 100%;
+      }
+
+      &__time-figure {
+        height: 89%;
+        width: 89%;
+      }
+
+      &__time-value {
+        font-size: 10rem;
+        top: 40%;
+      }
+
+      &__footer {
+        gap: 5.2rem;
+        button {
+          padding: 1.8rem 2rem;
+        }
+        button i {
+          font-size: 2.7rem;
+        }
+      }
+    }
+  }
+
+  &[data-mini="true"] {
+    position: relative;
+    z-index: 200;
+
+    @include fixed-center;
+
+    .timerCard {
+      &__header {
+        margin: 2.4rem;
+      }
+
+      &__name {
+        display: none;
+      }
+
+      &__header-btns {
+        width: 100%;
+        button {
+          display: none;
+        }
+
+        button[data-action="normal"] {
+          display: block !important;
+          position: absolute;
+          top: 0.5rem;
+          left: 0.5rem;
+        }
+      }
+
+      &__time-box {
+        background: transparent;
+        height: auto;
+      }
+
+      // &__time-box{} *************************
+      &__time-percent {
+        display: none;
+      }
+
+      &__time-figure {
+        display: none;
+      }
+
+      &__time-value {
+        top: 40%;
+        color: var(--text-dark);
+        position: static;
+      }
+
+      &__footer {
+        margin-top: 2.4rem;
+      }
+    }
+  }
+}

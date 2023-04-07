@@ -1,0 +1,29 @@
+.crud-btns {
+  padding: 0.4rem;
+  border: var(--border-line);
+  position: fixed;
+  right: 1.8rem;
+  bottom: 1.8rem;
+  border-radius: $radius-md;
+  @include flex-center;
+  gap: $gap-lw;
+
+  & > * {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+  }
+
+  &[data-edit="true"] {
+    button[data-action="edit"] {
+      display: none;
+    }
+    button[data-action="done"] {
+      display: block !important;
+    }
+
+    button[data-action="add"] {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}

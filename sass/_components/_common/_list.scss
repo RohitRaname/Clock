@@ -1,0 +1,53 @@
+.list {
+  @include flex-column;
+  gap: $gap-lw;
+  background: var(--background-light);
+
+  &-item {
+    @include flex-center;
+    justify-content: start;
+    gap: $gap-bg;
+    flex-direction: row-reverse;
+
+    padding: $padding-sm $padding-md;
+    transition: all 0.3s;
+    margin: 0 $padding-lw;
+    text-transform: capitalize;
+    border-radius: $radius-md;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 40%;
+      width: 0.44rem;
+      background: var(--color-primary);
+      border-radius: $radius-sm;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-4%, -50%);
+      display: none;
+    }
+    &:hover {
+      background: var(--background-hover);
+      cursor: pointer;
+    }
+
+    &:active {
+      background: var(--background-hover-light);
+      color: var(--text-dark);
+
+      i {
+        color: inherit;
+      }
+    }
+
+    &[data-active="true"] {
+      background: var(--background-hover);
+      &::before {
+        display: inline-block;
+      }
+    }
+  }
+}

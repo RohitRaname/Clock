@@ -1,0 +1,136 @@
+.modal {
+  position: absolute;
+
+  &-container {
+    color: var(--text-dark);
+    background: var(--background-light);
+    padding: $padding-md $padding-bg;
+    border-radius: $radius-md;
+    border:var(--border-line);
+  }
+
+  button[data-action="delete"] {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.7rem;
+    color: var(--color-tertiary);
+  }
+
+  &-content[data-action="add"] button[data-action="delete"] {
+    display: none;
+  }
+
+  &-boxs {
+    @include flex-center;
+    justify-content: stretch;
+    gap: $gap-sm;
+    border: var(--border-line);
+    border-radius: $radius-md;
+    padding: 0.24rem;
+    border-bottom: 3px solid var(--color-primary);
+  }
+
+  &-boxs[data-disabled="true"] {
+    border-bottom: var(--border-line);
+  }
+
+  &-boxs[data-disabled="true"] {
+    background: var(--background-light);
+  }
+
+  &-input {
+    &__box {
+      @include flex-center;
+      width: 100%;
+      gap: $gap-md;
+      justify-content: start;
+    }
+
+    &__content {
+      width: 100%;
+    }
+
+    input{
+      width: 100%
+    }
+  }
+
+  &-crud__btns {
+    @include flex-center;
+    gap: $gap-sm;
+  }
+
+  // &-boxs ************************************
+  &-box {
+    @include flex-column;
+    justify-content: center;
+    position: relative;
+  }
+  &-time__value {
+    font-size: 3.6rem;
+    font-weight: 700;
+    border: 1px solid var(--border-line);
+    // border-radius: $radius-sm;
+    padding: 1rem 2.3rem;
+    background: transparent;
+    border-radius: $radius-md;
+    display: inline-block;
+    color: inherit;
+    cursor: default;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-box[data-active="true"] &-time__value {
+    background: var(--background-hover);
+    color: var(--default-text);
+  }
+
+  &-box__btn {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &[data-action="decrease"] {
+      bottom: -4.7rem;
+    }
+    &[data-action="increase"] {
+      top: -4.7rem;
+    }
+  }
+
+  // &-name{} ****************************************
+  &-name__input,&-input {
+    background: transparent;
+    border: none;
+    font-size: $font-size-md;
+    color: var(--default-text);
+    border: 1px solid transparent;
+    border-bottom: 2px solid var(--text-dark);
+    border-radius: $radius-md;
+    padding: $padding-sm;
+    background: var(--background-light);
+    flex: 1;
+    transition: all 0.05s;
+    width: 100%;
+
+    &:hover {
+      background: var(--background-hover);
+    }
+  }
+
+  &-name__input:focus,&-input {
+    outline: none;
+    border: var(--border-line);
+    border-bottom: 2px solid var(--color-primary);
+    background: transparent;
+  }
+
+  // &-crud__btns{} ***********************************
+  &-crud__btn {
+    width: 50%;
+  }
+}

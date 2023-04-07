@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/immer"></script>
+    <script defer type="module" src="./script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+
+  
+
+    <div class="main-container">
+
+      <audio class="hidden" src=""></audio>
+      <!-- common component along with css  -->
+      <nav class="nav">
+        <div class="nav-header">
+          <div class="nav-menu nav-menu__desktop">
+            <i class="fas icon fa-clock"></i>
+            <h8 class="h-8 light">Clock</h8>
+          </div>
+
+          <div class="nav-menu nav-menu__phone hidden">
+            <i class="fas icon fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-content">
+          <ul class="list nav-list">
+            <li
+              class="list-item nav-item"
+              data-section="timer"
+              data-active="true"
+            >
+              timer
+              <i class="fas icon fa-hourglass-half"></i>
+            </li>
+            <li class="list-item nav-item" data-section="alarm">
+              alarm
+              <i class="fas icon fa-bell"></i>
+            </li>
+            <li class="list-item nav-item" data-section="stopwatch">
+              stopwatch
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>            <li class="list-item nav-item" data-section="worldclock">
+              worldclock
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+
+            <li class="list-item nav-item" data-section="settings">
+              settings
+              <i class="fas icon fa-cog"></i>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- there are not section  -->
+      <div class="main">
+        <section class="section section-alarm">
+          <div class="timer__overlay overlay hidden">&nbsp;</div>
+
+          <!-- not common -->
+          <div class="alarm">
+            <div class="alarm__container">
+              <div class="alarm__list card-list" data-enable-remove="false">
+                <!-- common along with css  -->
+
+                <div
+                  class="card alarm-card"
+                  data-name="alarm (3)"
+                  data-index="1"
+                  data-time="00:03:00"
+                  data-remaining-time="0"
+                  data-duration="180"
+                  data-type="alarm"
+                  data-action="edit"
+                  data-active="false"
+                  data-alarm-days=[
+                  {
+                  day:"M",
+                  active:true
+                    },
+                      {
+                      day:"Tu",
+                      active:true
+                    },
+                      {
+                      day:"We",
+                      active:true
+                    },
+                      {
+                      day:"Th",
+                      active:true
+                    },
+                      {
+                      day:"Fri",
+                      active:true
+                    },
+                      {
+                      day:"Sa",
+                      active:true
+                    },
+                      {
+                      day:"Su",
+                      active:true
+                    }
+                    ]
+                >
+                  <button
+                    class="card-header__btn card-deleteBtn btn-icon--square hidden"
+                    data-action="delete"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  <button
+                    class="alarm-btn alarm-startAndpauseBtn"
+                    data-action="start&pause"
+                    data-active="false"
+                  >
+                    <i class="fas fa-circle"></i>
+                  </button>
+
+                  <h1 class="h-1 alarm-time">21:31</h1>
+                  <p class="text-lw alarm-remainingTime">
+                    <i class="fas fa-bell"></i>
+                    in
+                    <span class="alarm-remainingTime__value"
+                      >1 hour,2 minutes</span
+                    >
+                  </p>
+                  <h5 class="h-5 alarm-name mg-lw">Alarm (1)</h5>
+
+                  <div class="alarm-days">
+                    <button
+                      class="alarm-dayBtn btn-icon--primary"
+                      data-day="MM"
+                      data-active="false"
+                    >
+                      <span class="alarm-dayName">M</span>
+                    </button>
+                    <button
+                      class="alarm-dayBtn btn-icon--primary"
+                      data-day="T"
+                      data-active="false"
+                    >
+                      <span class="alarm-dayName">Tu</span>
+                    </button>
+                    <button
+                      class="alarm-dayBtn btn-icon--primary"
+                      data-day="We"
+                      data-active="false"
+                    >
+                      <span class="alarm-dayName">We</span>
+                    </button>
+                    <button
+                      class="alarm-dayBtn btn-icon--primary"
+                      data-day="Th"
+                      data-active="false"
+                    >
+                      <span class="alarm-dayName">Th</span>
+                    </button>
+                    <button
+                      class="alarm-dayBtn btn-icon--primary"
+                      data-day="Fri"
+                      data-active="false"
+                    >
+                      <span class="alarm-dayName">Fri</span>
+                    </button>
+                    <button
+                      class="alarm-dayBtn btn-icon--primary"
+                      data-day="Sa"
+                      data-active="false"
+                    >
+                      <span class="alarm-dayName">Sa</span>
+                    </button>
+                    <button
+                      class="alarm-dayBtn btn-icon--primary"
+                      data-day="Su"
+                      data-active="false"
+                    >
+                      <span class="alarm-dayName">Su</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+  
+
+  
+    </div>
+    <div class="modal hidden">
+      <div class="overlay-transparent">&nbsp;</div>
+      <div class="modal-container card--dark fixed-center">
+        <div
+          class="modal-content"
+          data-action="edit"
+          data-index="1"
+          data-name="Alarm(3)"
+          data-type="alarm"
+          data-remaining-time-str="06:10:01"
+        >
+          <button
+            class="timerCard__header-btn card-header__btn btn-icon--square"
+            data-action="delete"
+          >
+            <!-- <i class="icon fa fa-compress"></i> -->
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <h5 class="h-5 mg-bg">Edit alarm</h5>
+
+          <div class="modal-boxs mg-bg" data-disabled="false">
+            <div class="modal-box" data-active="true" data-time-unit="hour">
+              <button
+                class="modal-box__btn btn-icon--square"
+                data-action="increase"
+              >
+                <i class="fas fa-angle-up"></i>
+              </button>
+              <p
+                type="text"
+                class="modal-time__value"
+                data-value="06"
+                data-unit="hour"
+              >
+                06
+              </p>
+              <button
+                class="modal-box__btn btn-icon--square"
+                data-action="decrease"
+              >
+                <i class="fas fa-angle-down"></i>
+              </button>
+            </div>
+            <i class="fas fa-ellipsis-v icon--dim icon--bg"></i>
+            <div
+              class="modal-box"
+              data-active="false"
+              data-time-unit="minute"
+            >
+              <button
+                class="modal-box__btn btn-icon--square"
+                data-action="increase"
+              >
+                <i class="fas fa-angle-up"></i>
+              </button>
+              <p
+                type="text"
+                data-value="10"
+                data-unit="minute"
+                class="modal-time__value"
+              >
+                10
+              </p>
+              <button
+                class="modal-box__btn btn-icon--square"
+                data-action="decrease"
+              >
+                <i class="fas fa-angle-down"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-input__box mg-sm" data-active="false">
+            <i class="fas fa-edit icon--md"></i>
+            <input type="text" class="modal-name__input" value="Timer(1)" />
+          </div>
+          <div class="alarm-days mg-sm">
+            <button
+              class="alarm-dayBtn btn-icon--primary"
+              data-day="MM"
+              data-active="true"
+            >
+              <span class="alarm-dayName">M</span>
+            </button>
+            <button
+              class="alarm-dayBtn btn-icon--primary"
+              data-day="T"
+              data-active="false"
+            >
+              <span class="alarm-dayName">Tu</span>
+            </button>
+            <button
+              class="alarm-dayBtn btn-icon--primary"
+              data-day="We"
+              data-active="false"
+            >
+              <span class="alarm-dayName">We</span>
+            </button>
+            <button
+              class="alarm-dayBtn btn-icon--primary"
+              data-day="Th"
+              data-active="false"
+            >
+              <span class="alarm-dayName">Th</span>
+            </button>
+            <button
+              class="alarm-dayBtn btn-icon--primary"
+              data-day="Fri"
+              data-active="false"
+            >
+              <span class="alarm-dayName">Fri</span>
+            </button>
+            <button
+              class="alarm-dayBtn btn-icon--primary"
+              data-day="Sa"
+              data-active="false"
+            >
+              <span class="alarm-dayName">Sa</span>
+            </button>
+            <button
+              class="alarm-dayBtn btn-icon--primary"
+              data-day="Su"
+              data-active="false"
+            >
+              <span class="alarm-dayName">Su</span>
+            </button>
+          </div>
+
+          <div class="modal-input__box mg-sm" data-action="repeat-alarm">
+            <button class="btn-checkbox" data-active="true">
+              <i class="fa fa-check icon--md"></i>
+            </button>
+            <p class="paragraph">Repeat alarm</p>
+          </div>
+
+          <div class="modal-input__box mg-sm" data-action="set-alarm-tune">
+            <i class="fas fa-music icon--md"></i>
+            <div class="modal-input__content dropdown-parent" data-active="false">
+              <input type="text" class="modal-input" name="alarm-tume" value="Chimes" />
+              <div class="dropdown dropdown-scale-middle">
+                <div class="list">
+                  <div class="list-item" data-value="disabled">
+                    <span class="list-text">Disabled</span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="10">
+                    <span class="list-text"> 10 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="20">
+                    <span class="list-text"> 20 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="30">
+                    <span class="list-text"> 30 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="50">
+                    <span class="list-text"> 50 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="60">
+                    <span class="list-text"> 60 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="60">
+                    <span class="list-text"> 60 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="60">
+                    <span class="list-text"> 60 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="60">
+                    <span class="list-text"> 60 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal-input__box mg-md"
+            data-active="false"
+            data-action="set-repeat-alarm-timer-period"
+          >
+            <i class="fas fa-bell icon--md"></i>
+
+            <div class="modal-input__content dropdown-parent">
+              <input
+                type="text"
+                class="modal-input"
+                name="repeat-alarm-timer-period"
+                value="5 minutes"
+              />
+              <div class="dropdown dropdown-scale-middle">
+                <div class="list">
+                  <div class="list-item" data-value="disabled">
+                    <span class="list-text">Disabled</span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="10">
+                    <span class="list-text"> 10 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="20">
+                    <span class="list-text"> 20 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="30">
+                    <span class="list-text"> 30 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="50">
+                    <span class="list-text"> 50 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="60">
+                    <span class="list-text"> 60 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="60">
+                    <span class="list-text"> 60 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="60">
+                    <span class="list-text"> 60 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <div class="list-item" data-value="60">
+                    <span class="list-text"> 60 </span>
+                    <i class="fa fa-play"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-crud__btns">
+            <button class="modal-crud__btn btn--primary" data-action="save">
+              <i class="fas fa-save"></i>
+              <span>Save</span>
+            </button>
+            <button class="modal-crud__btn btn--outline" data-action="cancel">
+              <i class="fas fa-times"></i>
+              <span>Cancel</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup hidden">
+      <!-- enclosing data in take is quite useful we can easily read data and code better -->
+
+      <div class="overlay"></div>
+
+      <div class="popup-container" data-action="alarm-completed">
+        <div class="popup-content">
+          <header class="popup-header f-s mg-lw">
+            <div class="f-sm">
+              <i class="fa fa-clock"></i>
+              <p class="paragraph--md">Clock</p>
+            </div>
+            <div class="f-sm">
+              <button
+                class="btn-icon btn--sm"
+                data-action="dismiss-alarm-by-close-btn"
+              >
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </header>
+
+          <div class="popup-content mg-lw">
+            <p class="paragraph--md">Alarm</p>
+            <p class="paragraph--md">Alarm (7)</p>
+            <p class="paragraph--md">00:00</p>
+            <p class="paragraph--md mg-lw">00:00</p>
+
+            <button
+              class="btn--black btn--100 btn--change-time dropdown-parent f-s"
+              data-active="false"
+              data-action="snooze-alarm-time-period"
+              data-dpos="top"
+            >
+              <input type="text" class="hidden" name="snooze" />
+              <p class="paragraph--md popup-snooze-text">10 minutes</p>
+
+              <i class="fas fa-angle-down"></i>
+
+              <div class="dropdown dropdown--auto" data-type="snooze-alarm">
+                <div class="list">
+                  <div class="list-item" data-value="10">10 minutes</div>
+                  <div class="list-item" data-value="20">20 minutes</div>
+                  <div class="list-item" data-value="30">30 minutes</div>
+                  <div class="list-item" data-value="50">50 minutes</div>
+                  <div class="list-item" data-value="60">1 hour</div>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <footer class="popup-footer f-b">
+            <button class="btn--black" data-action="save-snooze-time">
+              Snooze
+            </button>
+            <button
+              class="btn--black"
+              data-action="dismiss-alarm-by-main-btn"
+            >
+              Dismiss
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div class="crud-btns" data-page="alarm">
+      <button class="btn-icon--square" data-action="edit">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button class="btn-icon--square hidden" data-action="done">
+        <i class="fas fa-check"></i>
+      </button>
+
+      <button class="btn-icon--square" data-action="add">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </body>
+</html>
+
+
+
+

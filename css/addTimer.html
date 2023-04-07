@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- common component along with css  -->
+      <nav class="nav">
+        <div class="nav-header">
+          <div class="nav-menu nav-menu__desktop">
+            <i class="fas icon fa-clock"></i>
+            <h8 class="h-8 light">Clock</h8>
+          </div>
+
+          <div class="nav-menu nav-menu__phone hidden">
+            <i class="fas icon fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-content">
+          <ul class="list nav-list">
+            <li
+              class="list-item nav-item"
+              data-section="timer"
+              data-active="true"
+            >
+              timer
+              <i class="fas icon fa-hourglass-half"></i>
+            </li>
+            <li class="list-item nav-item" data-section="alarm">
+              alarm
+              <i class="fas icon fa-bell"></i>
+            </li>
+            <li class="list-item nav-item" data-section="stopwatch">
+              stopwatch
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+
+            <li class="list-item nav-item" data-section="settings">
+              settings
+              <i class="fas icon fa-cog"></i>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <section class="section section-timer">
+          <!-- not common -->
+          <div class="timer">
+            <div class="timer__container">
+              <div class="timer__list">
+                <!-- common along with css  -->
+
+                <div class="card timer__card">
+                  <div class="timer__header mg-lw">
+                    <h8 class="h-8"
+                      >Timer
+                      <span class="timer-number">(3)</span>
+                    </h8>
+                    <div class="timer__header-btns">
+                      <button class="btn-icon--square">
+                        <i class="fa fa-expand"></i>
+                      </button>
+
+                      <button class="btn-icon--square">
+                        <!-- <i class="icon fa fa-compress"></i> -->
+                        <i class="fas fa-external-link-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="timer__time-box mg-sm">
+                    <div class="timer__time-figure"></div>
+                    <p class="timer__time-value">00:21:30</p>
+                  </div>
+                  <div class="timer__footer">
+                    <button class="btn-icon--primary">
+                      <i class="fas icon fa-play"></i>
+                    </button>
+
+                    <button class="btn-icon--primary" disabled>
+                      <i class="fas icon fa-circle-notch"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- common -->
+      <div class="crud-btns">
+        <button class="btn-icon--square">
+          <i class="fas fa-edit"></i>
+        </button>
+
+        <button class="btn-icon--square">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

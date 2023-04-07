@@ -1,0 +1,78 @@
+.card {
+  & {
+    border-radius: $radius-bg;
+    background: var(--background-light);
+    box-shadow: var(--default-shadow);
+    transition: all 0.15s;
+    padding: $padding-sm $padding-md;
+    padding-bottom: $padding-md;
+  }
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: var(--shadow-dark);
+    background: var(--background-dim);
+  }
+  &:active {
+    transform: translateY(-0.1rem);
+    background: var(--background-dim);
+    box-shadow: none;
+  }
+}
+
+.card-only {
+  @extend .card;
+  box-shadow: var(--shadow-dim);
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.card {
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    gap: $gap-md;
+  }
+
+  // attribute
+  &-list[data-enable-remove="true"] {
+    .card {
+      position: relative;
+
+      &-header__btn {
+        display: none;
+      }
+      &-header__btn[data-action="delete"],
+      &-deleteBtn {
+        display: block !important;
+        color: var(--color-tertiary-light);
+        position: absolute;
+        top: 0.3rem;
+        right: 0.4rem;
+        background: transparent;
+      }
+
+      & > * {
+        color: var(--text-dull);
+      }
+
+      button {
+        background: var(--background-hover);
+      }
+    }
+  }
+
+  button[data-action="delete"] {
+    background: transparent !important;
+    transition: all 0.2s;
+    &:hover {
+      background: var(--background-hover);
+      i {
+        color: var(--color-tertiary);
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.modal-content[data-type="worldclock"] {
+  .modal {
+    &-search-bar {
+      position: relative;
+
+      input {
+        text-transform: capitalize;
+      }
+
+      i {
+        position: absolute;
+        top: 35%;
+        right: 1.4rem;
+      }
+    }
+  }
+}

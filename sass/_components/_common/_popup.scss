@@ -1,0 +1,27 @@
+.popup {
+
+
+  &-container {
+    @include fixed-center;
+    background: var(--default-background);
+    padding: $padding-md;
+    border-radius: $radius-bg;
+    width: 43rem;
+    border: var(--border-line);
+  }
+
+  &-header {
+  }
+  &-content {
+  }
+  &-footer {
+  }
+
+  .btn--change-time {
+    padding: 1.2rem 1rem;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}

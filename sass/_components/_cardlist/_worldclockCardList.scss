@@ -1,0 +1,30 @@
+.worldclock {
+  &-list {
+    max-width: 80rem;
+    margin: 0 auto;
+    max-height: 80vh;
+    display: block;
+
+  }
+  &-item:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  
+  &-list[data-enable-remove="true"] {
+    .worldclock {
+      &-item > * {
+        color: var(--default-text);
+      }
+
+      &-icon-box {
+        .worldclock-day-icon {
+          display: none;
+        }
+        button[data-action="delete-card"] {
+          display: flex !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+.alarm {
+  // this one should not be here
+  &__list[data-enable-remove="true"] {
+    .alarm-startAndpauseBtn {
+      display: none !important;
+    }
+
+    .alarm-dayBtn {
+      background: transparent !important;
+      color: var(--text-dim) !important;
+    }
+  }
+
+  // this one should be here
+  &-card {
+    position: relative;
+
+    &[data-active="true"] {
+    }
+
+    &[data-active="false"] {
+      & > * {
+        color: var(--text-dim) !important;
+      }
+
+      .alarm-dayBtn {
+        background: transparent !important;
+        color: var(--text-dim) !important;
+      }
+    }
+  }
+
+  &-startAndpauseBtn {
+    position: absolute;
+    right: 1.4rem;
+    top: 1.6rem;
+    border-radius: $radius-round;
+    padding: 0.19rem;
+    width: 5rem;
+    transition: all 0.3s;
+    height: 2.35rem;
+
+    cursor: pointer;
+
+    i {
+      display: inline-block;
+      position: absolute;
+      top: 0.24rem;
+      font-size: $font-size-md;
+      transition: all 0.165s ease-in;
+      left: 0.24rem;
+
+      &:hover {
+        top: 0.24rem !important;
+        font-size: 1.74rem !important;
+      }
+    }
+
+    &[data-active="false"] {
+      border: var(--border-line-dark);
+      background: transparent;
+    }
+
+    &[data-active="true"] {
+      background: var(--color-primary);
+      border: 1px solid var(--color-primary);
+
+      i {
+        font-size: $font-size-sm;
+        top: 0.35rem;
+        transform: translateX(2.74rem);
+        color: var(--default-background);
+      }
+    }
+  }
+
+  &-time {
+    margin-bottom: 0.7rem !important;
+  }
+
+  &-remainingTime {
+    font-size: $font-size-sm;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+
+  &-days {
+    @include flex-center;
+    gap: 1rem;
+    justify-content: start;
+  }
+
+  &-dayBtn {
+    font-size: $font-size-sm;
+    color: var(--text-dim);
+    height: 3.2rem;
+    width: 3.2rem;
+    padding: 0;
+    background: transparent;
+    &:hover {
+      background: transparent;
+      cursor: default;
+    }
+
+    &[data-active="true"] {
+      background: var(--color-primary);
+      color: var(--default-background);
+
+      &:hover {
+        background: var(--color-primary);
+      }
+    }
+  }
+}

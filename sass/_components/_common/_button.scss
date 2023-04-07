@@ -1,0 +1,203 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    font-family: 400;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+
+    @include first-letter-uppercase;
+  }
+
+  i {
+    position: relative;
+    z-index: 10;
+  }
+
+  &--sm {
+    // padding: 1rem 2rem;
+    font-size: $font-size-sm !important;
+  }
+  &--md {
+    font-size: $font-size-md !important;
+    // padding: 1.1rem 2.2rem;
+  }
+  &--bg {
+    // padding: 1.4rem 2.4rem;
+    font-size: $default-font-size !important;
+  }
+  &--lg {
+    // padding: 1.6rem 3.2rem;
+    font-size: $default-font-size !important;
+  }
+
+  &--100 {
+    width: 100% !important;
+  }
+
+  &--disabled {
+    cursor: default !important;
+    font-size: $font-size-md !important;
+    // padding: 1.1rem 2.2rem;
+    filter: brightness(var(--brightness)) !important;
+  }
+}
+
+// BTN PRIMARY **************************************************************************
+.btn--primary {
+  @extend .btn;
+  background: var(--color-primary);
+  font-weight: 500;
+  border-radius: $radius-md;
+  color: var(--default-background);
+  padding: 1rem 4rem;
+  font-size: $font-size-md;
+  text-align: center;
+  @include flex-center;
+  align-items: baseline;
+  gap: $gap-sm;
+
+  i {
+    font-size: $font-size-bg;
+  }
+
+  &:hover {
+    background: var(--color-primary-dark);
+  }
+}
+
+.btn--black {
+  @extend .btn--primary;
+  color: var(--default-text);
+  background: var(--background-light);
+  border: var(--border-line);
+
+  font-size: $font-size-md;
+
+  &:hover {
+    background: var(--background-dark);
+  }
+
+  i {
+    font-size: $font-size-sm;
+  }
+}
+
+.btn--grey {
+  @extend .btn--primary;
+  color: var(--default-text);
+  background: var(--background-hover-light);
+  cursor: default;
+  font-weight: 300;
+  padding: 0.6rem 1.3rem;
+  gap: 0.8rem;
+  border-radius: $radius-round;
+
+  i {
+    font-size: $font-size-sm;
+  }
+
+  &:hover {
+    background: var(--background-hover-light);
+  }
+}
+
+// BTN WHITE
+.btn--white {
+  @extend .btn--primary;
+  width: auto;
+  background: var(--default-text);
+  color: var(--background-dark);
+  font-size: $font-size-sm;
+  padding: 1.1rem 2.2rem;
+
+  &:hover {
+    background-color: var(--text-dark);
+  }
+}
+
+// BTN TEXT **************************************************************************
+.btn--text {
+  @extend .btn;
+  width: 100%;
+  font-size: $font-size-md;
+  color: var(--color-primary);
+  background: transparent;
+  @include flex-center;
+  padding: 1.2rem 2.4rem;
+  display: inline-block;
+  margin: $padding-lw 0;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    background: var(--background-hover-light);
+    border-bottom: 1px solid var(--color-primary);
+  }
+}
+.btn--text--left {
+  @extend .btn--text;
+  justify-content: start;
+  padding-top: 1.7rem;
+  padding-bottom: 2.4rem;
+}
+
+// BTN OUTLINE ************************************************************************
+.btn--outline {
+  @extend .btn--primary;
+  border: var(--border-line);
+  background: transparent;
+  color: var(--default-text);
+  // padding: 1rem 2.4rem;
+  background: var(--background-light);
+
+  &:hover {
+    background: var(--background-hover);
+  }
+}
+
+.btn--outline-primary {
+  @extend .btn--outline;
+  color: var(--color-primary);
+}
+
+//  BTN ICON ***********************************************************************
+//  ***
+
+.btn-checkbox {
+  border: var(--border-line-dark);
+  border-radius: $radius-sm;
+  transition: all 0.15s;
+  @include flex-center;
+  height: 2rem;
+  width: 2rem;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--background-dim);
+  }
+
+  &:active {
+    background: var(--background-dark);
+    border: var(--border-line);
+  }
+
+  i {
+    font-size: $font-size-sm;
+    color: var(--default-background);
+    transform: scaleX(0);
+    transition: all 0.1s 0.15s;
+  }
+
+  &[data-active="true"] {
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    i {
+      transform: scale(1);
+    }
+  }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/immer"></script>
+
+    <script defer type="module" src="./script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- common component along with css  -->
+      <nav class="nav">
+        <div class="nav-header">
+          <div class="nav-menu nav-menu__desktop">
+            <i class="fas icon fa-clock"></i>
+            <h8 class="h-8 light">Clock</h8>
+          </div>
+
+          <div class="nav-menu nav-menu__phone hidden">
+            <i class="fas icon fa-bars"></i>
+          </div>
+        </div>
+        <div class="nav-content">
+          <ul class="list nav-list">
+            <li
+              class="list-item nav-item"
+              data-section="timer"
+              data-active="true"
+            >
+              timer
+              <i class="fas icon fa-hourglass-half"></i>
+            </li>
+            <li class="list-item nav-item" data-section="alarm">
+              alarm
+              <i class="fas icon fa-bell"></i>
+            </li>
+            <li class="list-item nav-item" data-section="stopwatch">
+              stopwatch
+
+              <i class="fas icon fa-stopwatch"></i>
+            </li>
+
+            <li class="list-item nav-item" data-section="settings">
+              settings
+              <i class="fas icon fa-cog"></i>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <div class="popup">
+          <!-- enclosing data in take is quite useful we can easily read data and code better -->
+  
+          <div class="overlay"></div>
+  
+          <div class="popup-container" data-action="alarm-completed">
+            <div class="popup-content">
+              <header class="popup-header f-s mg-lw">
+                <div class="f-sm">
+                  <i class="fa fa-clock"></i>
+                  <p class="paragraph--md">Clock</p>
+                </div>
+                <div class="f-sm">
+                  <button
+                    class="btn-icon btn--sm"
+                    data-action="dismiss-alarm-by-close-btn"
+                  >
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </header>
+  
+              <div class="popup-content mg-lw">
+                <p class="paragraph--md">Alarm</p>
+                <p class="paragraph--md">Alarm (7)</p>
+                <p class="paragraph--md">00:00</p>
+                <p class="paragraph--md mg-lw">00:00</p>
+  
+                <button
+                  class="btn--black btn--100 btn--change-time dropdown-parent f-s"
+                  data-active="false"
+                  data-action="snooze-alarm-time-period"
+                  data-dpos="top"
+                >
+                  <input type="text" class="hidden" name="snooze" />
+                  <p class="paragraph--md popup-snooze-text">10 minutes</p>
+  
+                  <i class="fas fa-angle-down"></i>
+  
+                  <div class="dropdown dropdown--auto" data-type="snooze-alarm">
+                    <div class="list">
+                      <div class="list-item" data-value="10">10 minutes</div>
+                      <div class="list-item" data-value="20">20 minutes</div>
+                      <div class="list-item" data-value="30">30 minutes</div>
+                      <div class="list-item" data-value="50">50 minutes</div>
+                      <div class="list-item" data-value="60">1 hour</div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+  
+              <footer class="popup-footer f-b">
+                <button class="btn--black" data-action="save-snooze-time">
+                  Snooze
+                </button>
+                <button
+                  class="btn--black"
+                  data-action="dismiss-alarm-by-main-btn"
+                >
+                  Dismiss
+                </button>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+
+  
+
+  <script src=""></script>
+</html>
+
+
+

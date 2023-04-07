@@ -1,0 +1,32 @@
+.worldclock {
+  &-item {
+    box-shadow: none !important;
+    border-radius: $radius-md;
+
+    &:hover {
+      transform: translate(0);
+    }
+
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 4fr 3.5fr;
+    align-items: center;
+    justify-items: center;
+
+    button[data-action="delete-card"] {
+      position: relative !important;
+      background: transparent !important;
+      transition: all .2s;
+      &:hover {
+        color: var(--default-text);
+        background: var(--background-hover) !important;
+      }
+    }
+
+    &[data-day-type="night"] i[data-icon="night"] {
+      display: none;
+    }
+    &[data-day-type="day"] i[data-icon="day"] {
+      display: none;
+    }
+  }
+}

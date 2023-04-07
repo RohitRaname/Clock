@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Kaushan+Script|Oswald&display=swap");
+
+// $background-on
+// $background-alt
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+// FONT VARIABLES
+$font-primary: "Nunito", sans-serif;
+$font-display: "Josefin Sans", sans-serif;
+
+$color-shadow: #777;
+$color-shadow-dark: #666;
+$color-shadow-light: #999;
+
+$color-white: #fff;
+$color-white-light: #f1f3f5;
+$color-white-dark: #e9ecef;
+
+$color-grey: #ced4da;
+$color-grey-light: #dee2e6;
+$color-grey-dark: #adb5bd;
+
+$color-black: #000;
+$color-black-dark: #222;
+$color-black-light: #212529;
+$color-black-dim: #333;
+$color-black-dull: #444;
+
+// COLOR VARIABLES
+$color-primary: #339af0;
+$color-primary-light: #74c0fc;
+$color-primary-dark: #228be6;
+$color-primary-opacity: #d0ebff;
+
+:root {
+  // COLOR
+  --color-primary: #1c7ed6;
+  --color-primary-light: #339af0;
+  --color-primary-dark: #1971c2;
+  --color-primary-dull: rgba(51, 154, 240, 0.3);
+  --color-primary-dim: rgba(51, 154, 240, 0.15);
+
+  --color-secondary: #0ca678;
+  --color-secondary-dim: rgba(12, 166, 120, 0.15);
+
+  --color-tertiary: #e03131;
+  --color-tertiary-light: rgba(224, 49, 49, 0.7);
+  --color-tertiary-dim: rgba(224, 49, 49, 0.15);
+
+  // BACKGROUND
+  --default-background: #1f1f1f;
+  --background-light: #313131;
+  --background-dark: #292929;
+  --background-dim: #323232;
+  --background-dull: #434343;
+  --background-hover: #ffffff1a;
+  --background-hover-light: #ffffff0d;
+  --background-opacity: rgba(0, 0, 0, 0.7);
+
+  // TEXT COLOR
+  --default-text: #fff;
+  --text-light: #dee2e6;
+  --text-dark: #adb5bd;
+  --text-dull: #6a6767;
+  --text-dim: #767474;
+
+  --border-line: 1px solid var(--background-dull);
+  --border-line-dark: 1px solid var(--text-dark);
+
+  --brightness: 55%;
+
+  --default-shadow: 0 0.4rem 0.7rem 0.3rem rgba(0, 0, 0, 0.1);
+  --shadow-light: 0 0.5rem 1.5rem 0.3rem rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 0.5rem 1.5rem 0.3rem rgba(0, 0, 0, 0.2);
+  --shadow-dark: 0 0.4rem 1.5rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="light"] {
+  // BACKGROUND
+  --default-background: $color-white-dark;
+  --background-light: #f8f9fa;
+  --background-dark: #ced4da;
+  --background-dim: #f1f3f5;
+  --background-dull: #e9ecef;
+  --background-hover: #dee2e6;
+  --background-hover-light: #e9ecef;
+  --background-opacity: #000;
+
+  // TEXT COLOR
+  --default-text: #111;
+  --text-light: #111;
+  --text-dark: #000;
+  --text-dull: #444;
+  --text-dim: #000;
+
+  --border-line: 1px solid var(--background-dull);
+  --border-line-dark: 1px solid var(--text-dark);
+
+  --brightness: 55%;
+
+  --default-shadow: 0 0.4rem 0.7rem 0.3rem rgba(#000, 0.1);
+  --shadow-light: 0 0.5rem 1.5rem 0.3rem rgba(#000, 0.1);
+  --shadow-medium: 0 0.5rem 1.5rem 0.3rem rgba(#000, 0.2);
+  --shadow-dark: 0 0.4rem 1.5rem 0.4rem rgba(#000, 0.2);
+
+  .disabled {
+    filter: brightness(100%);
+  }
+}
+
+$phone: 37.5em;
+$tab-port: 56.25em;
+$tab-land: 75em;
+$normal-desktop: 100em;
+$big-desktop: 112.5em;
+
+$default-shadow: 0.2rem 0.2rem 1rem rgba($color-black, 0.1);
+$shadow-light: 0.2rem 0.2rem 1rem rgba($color-black, 0.1);
+$shadow-medium: 0.2rem 0.2rem 1rem rgba($color-black, 0.1);
+$shadow-dark: 0.2rem 0.8rem 1.5rem rgba($color-black, 0.13);
+
+$default-font-size: 1.8rem;
+$font-size-lw: 1.2rem;
+$font-size-sm: 1.4rem;
+$font-size-md: 1.6rem;
+$font-size-bg: 2rem;
+$font-size-lg: 2.2rem;
+
+$default-radius: 9px;
+$radius-sm: 3px;
+$radius-md: 5px;
+$radius-bg: 11px;
+$radius-lg: 13px;
+$radius-round: 10rem;
+
+$default-padding: 1.6rem;
+$padding-lw: 0.6rem;
+$padding-sm: 1rem;
+$padding-md: 1.6rem;
+$padding-bg: 2.4rem;
+$padding-lg: 3.2rem;
+
+$default-gap: 1.6rem;
+$gap-lw: 0.4rem;
+$gap-sm: 1.2rem;
+$gap-md: 2rem;
+$gap-bg: 2.4rem;
+$gap-lg: 3.2rem;
+
+$default-space: 4.8rem;
+$space-sm: 6.4rem;
+$space-md: 8rem;
+$space-bg: 9.6rem;
+$space-lg: 12.8rem;
+
+$default-line-height: 1.5;

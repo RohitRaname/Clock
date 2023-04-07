@@ -1,0 +1,298 @@
+.section-stopwatch {
+  // @include flex-center;
+}
+
+.stopwatch {
+  &-container {
+    margin: 0 auto;
+    margin-top: 7rem;
+    // width: 100;
+    position: relative;
+    z-index: 1000;
+    max-width: min-content;
+  }
+
+  &-header,
+  &-content,
+  &-footer {
+    display: flex;
+  }
+
+  &-header {
+    justify-content: end;
+  }
+  &-content {
+    justify-content: center;
+    font-size: 10rem;
+    font-weight: 500;
+    color: var(--text-dark);
+  }
+  &-footer {
+    justify-content: center;
+    gap: 2.4rem;
+  }
+
+  &-checkpoint {
+  }
+
+  ////////////////////////////////////////////
+  /// header
+  ////////////////////////////////////////////
+
+  ////////////////////////////////////////////
+  /// content
+  ////////////////////////////////////////////
+  &-time {
+    // 00:00:00
+    &-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &-value {
+      // line-height: 1 in typography for all ;
+      // then for certain element we will change these not for all
+      line-height: 1;
+      color: inherit;
+    }
+    &-unit {
+      font-size: 2.8rem;
+      color: inherit;
+    }
+  }
+
+  &-gap-icon {
+    transform: translateY(-22%);
+    color: inherit;
+  }
+
+  ////////////////////////////////////////////
+  /// content
+  ////////////////////////////////////////////
+  &-footer {
+    margin-top: -1rem;
+    button {
+      height: 5.6rem;
+      width: 5.6rem;
+      i {
+        font-size: 2.2rem;
+      }
+    }
+  }
+
+  ////////////////////////////////////////////
+  /// content
+  ////////////////////////////////////////////
+  &-checkpoint {
+    &-header,
+    &-footer &-item {
+      display: grid;
+      grid-template-columns: repeat(3, 20rem);
+    }
+
+    // header
+    &-header {
+      padding-bottom: 1rem;
+      border-bottom: var(--border-line);
+    }
+
+    // footer
+    &-item {
+      padding: 1rem 0;
+
+      &-index {
+        margin-right: 2.4rem;
+      }
+    }
+  }
+}
+
+// attributes ------------------------------------------------------
+.stopwatch[data-expand-view="true"] {
+  .overlay {
+    display: block !important;
+    background: var(--background-dark);
+    opacity: 1;
+  }
+
+  .stopwatch {
+    background: red;
+    &-container {
+      @include fixed-center;
+      margin: 0;
+      top: 44%;
+    }
+
+    &-footer {
+      gap: 2rem;
+    }
+
+    ////////////////////////////////////////////
+    /// header
+    ////////////////////////////////////////////
+    &-header {
+      button {
+        display: none;
+      }
+      button[data-action="normal-stopwatch-view"] {
+        display: block !important;
+      }
+    }
+
+    ////////////////////////////////////////////
+    /// content
+    ////////////////////////////////////////////
+    &-time {
+      // 00:00:00
+
+      &-value {
+        font-size: 12rem;
+      }
+      &-unit {
+        font-size: 2.8rem;
+      }
+    }
+
+    ////////////////////////////////////////////
+    /// content
+    ////////////////////////////////////////////
+    &-footer {
+      button[data-action="bookmark-current-time"] {
+        display: none;
+      }
+    }
+
+    &-checkpoint {
+      display: none;
+    }
+  }
+}
+
+.stopwatch[data-start-stopwatch="true"] {
+  button[data-action="start-stopwatch"] {
+    display: none !important;
+  }
+  button[data-action="pause-stopwatch"] {
+    display: block !important;
+  }
+
+  button[data-action="bookmark-current-time"] {
+    @extend .enable-btn;
+  }
+
+  button[data-action="reset-stopwatch"] {
+    @extend .enable-btn;
+  }
+
+  .stopwatch-content {
+    color: var(--text);
+  }
+}
+
+// // use more selector to increase priority rather then important
+.stopwatch[data-stopwatch-time-zero="false"][data-start-stopwatch="false"] {
+  button[data-action="bookmark-current-time"] {
+    @extend .disabled;
+  }
+  button[data-action="reset-stopwatch"] {
+    @extend .enable-btn;
+  }
+}
+
+.stopwatch[data-mini-view="true"] {
+  .overlay {
+    display: block !important;
+    background: var(--background-dark);
+    opacity: 1;
+  }
+
+  .stopwatch {
+    &-container {
+      @include fixed-center;
+      margin: 0;
+      top: 44%;
+      border: 1.5px solid var(--background-hover);
+      border-radius: $radius-bg;
+      padding: 0.4rem 1.5rem;
+      padding-bottom: 1.6rem;
+    }
+
+    &-content {
+      margin-bottom: 3.6rem !important;
+    }
+
+    &-footer {
+      gap: 2rem;
+    }
+
+    ////////////////////////////////////////////
+    /// header
+    ////////////////////////////////////////////
+    &-header {
+      button {
+        display: none;
+      }
+      button[data-action="normal-stopwatch-view"] {
+        margin-right: -1rem;
+        display: block !important;
+      }
+      // button[data-action="mini-stopwatch-view"] {
+      // }
+    }
+
+    ////////////////////////////////////////////
+    /// content
+    ////////////////////////////////////////////
+    &-time {
+      // 00:00:00
+      &-box {
+        margin-right: 0.5rem;
+      }
+
+      &-value {
+        font-size: 2.4rem;
+      }
+      &-unit {
+        font-size: 1.5rem;
+      }
+    }
+
+    &-gap-icon {
+      display: flex;
+      align-items: start;
+      margin-top: -0.4rem;
+      span {
+        font-size: 3.3rem;
+        font-weight: 600;
+      }
+    }
+    ////////////////////////////////////////////
+    /// footer
+    ////////////////////////////////////////////
+    ///
+    ///
+    ///
+
+    &-footer {
+      margin: 0 !important;
+
+      button[data-action="bookmark-current-time"] {
+        display: none;
+      }
+
+      button {
+        // circle btn should have a fixed height and width
+        height: 3.5rem;
+        width: 3.5rem;
+
+        i {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    &-checkpoint {
+      display: none;
+    }
+  }
+}
